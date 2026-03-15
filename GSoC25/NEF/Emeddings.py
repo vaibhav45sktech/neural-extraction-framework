@@ -9,7 +9,7 @@ if not API_KEY:
     from getpass import getpass
     API_KEY = getpass("Enter your Gemini API key: ").strip()
 
-# == Gemini Embeddings REST (batch) ==
+# == Gemini Embeddings REST (_batch) ==
 BATCH_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents"
 HEADERS = {"Content-Type": "application/json"}
 
@@ -81,7 +81,7 @@ texts = [make_label_text(u, l, c if c else None) for u, l, c in zip(predicates, 
 # === Embedding config ===
 # Force output dimensionality so it matches your runtime (e.g., 768)
 OUTPUT_DIM = 768
-BATCH_SIZE = 20
+BATCH_SIZE = 100
 MAX_RETRIES = 5
 SLEEP_BETWEEN_CALLS = 65  # pacing for free-tier rate limits
 

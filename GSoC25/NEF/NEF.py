@@ -707,7 +707,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
 
     # Redis
     p.add_argument("--redis-host", type=str, default=os.getenv("NEF_REDIS_HOST", ""))
-    p.add_argument("--redis-port", type=int, default=int(os.getenv("NEF_REDIS_PORT", "")))
+    p.add_argument("--redis-port", type=int, default=int(os.getenv("NEF_REDIS_PORT", "6379")))
     p.add_argument("--redis-password", type=str, default=os.getenv("NEF_REDIS_PASSWORD", ""))
 
     return p.parse_args(argv)
